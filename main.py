@@ -74,23 +74,14 @@ def run_bot():
                 score = hype_score(vol, liq)
                 emoji = emoji_tag(score)
                 msg = (
-                    f"{emoji} *NEW MEME COIN ALERT*
-
-"
-                    f"• Symbol: {sym}
-"
-                    f"• Price: ${price}
-"
-                    f"• Liquidity: ${liq:,.0f}
-"
-                    f"• Volume (24h): ${vol:,.0f}
-"
-                    f"• Suggested Hold: {hold_time}
-"
-                    f"• Hype Score: {score}/100
-"
-                    f"• Risk Level: Medium
-"
+                    f"{emoji} *NEW MEME COIN ALERT*\n\n"
+                    f"• Symbol: {sym}\n"
+                    f"• Price: ${price}\n"
+                    f"• Liquidity: ${liq:,.0f}\n"
+                    f"• Volume (24h): ${vol:,.0f}\n"
+                    f"• Suggested Hold: {hold_time}\n"
+                    f"• Hype Score: {score}/100\n"
+                    f"• Risk Level: Medium\n"
                     f"• Discovered: {datetime.utcnow().strftime('%H:%M UTC')}"
                 )
                 send_telegram(msg)

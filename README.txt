@@ -7,6 +7,4 @@ PHANTOMSCALERX v7.1 – MEME ALERTS + HYPE SCORING
    - Hype Score (0–100)
    - Emoji tags (🚀🔥⚠️💀)
 
-No trades. No spam. Just sniper alerts.
-
-Auto-wired to your Telegram. Ready for Render or Replit.
+Auto-wired to your Telegram. Deploy on Render or Replit.
