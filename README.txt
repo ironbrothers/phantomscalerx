@@ -1,7 +1,12 @@
-PHANTOMSCALERX v7.0 – MEME ALERTS ONLY (TELEGRAM READY)
+PHANTOMSCALERX v7.1 – MEME ALERTS + HYPE SCORING
 
-✅ Sends meme coin alerts to your Telegram
-✅ Bullet-point summaries with hold time estimates
-✅ Auto-wired to your Telegram account
+✅ Sends only top-tier meme coin alerts
+✅ Includes:
+   - Bullet-point summaries
+   - Suggested hold time
+   - Hype Score (0–100)
+   - Emoji tags (🚀🔥⚠️💀)
 
-Deploy directly on Replit or Render.
+No trades. No spam. Just sniper alerts.
+
+Auto-wired to your Telegram. Ready for Render or Replit.

@@ -39,8 +39,26 @@ def estimate_hold_time(vol, liq):
     else:
         return "Hold 1–2 days max (low but climbing)"
 
+def hype_score(vol, liq):
+    base = 50
+    if vol > 150000: base += 25
+    elif vol > 80000: base += 15
+    if liq > 15000: base += 10
+    elif liq > 8000: base += 5
+    return min(base, 100)
+
+def emoji_tag(score):
+    if score >= 85:
+        return "🚀🔥"
+    elif score >= 70:
+        return "🚀"
+    elif score >= 50:
+        return "⚠️"
+    else:
+        return "💀"
+
 def run_bot():
-    send_telegram("📡 PhantomScalerX v7.0 – Meme Signal Mode Activated")
+    send_telegram("📡 PhantomScalerX v7.1 – Meme Alerts + Hype Scoring Live")
     seen = set()
     while True:
         tokens = get_meme_tokens()
@@ -53,14 +71,26 @@ def run_bot():
                 liq = float(t['liquidity']['usd'])
                 vol = float(t['volume']['h24'])
                 hold_time = estimate_hold_time(vol, liq)
+                score = hype_score(vol, liq)
+                emoji = emoji_tag(score)
                 msg = (
-                    f"🚨 NEW MEME COIN ALERT\n\n"
-                    f"• Symbol: {sym}\n"
-                    f"• Price: ${price}\n"
-                    f"• Liquidity: ${liq:,.0f}\n"
-                    f"• Volume (24h): ${vol:,.0f}\n"
-                    f"• Suggested Hold: {hold_time}\n"
-                    f"• Risk Level: Medium\n"
+                    f"{emoji} *NEW MEME COIN ALERT*
+
+"
+                    f"• Symbol: {sym}
+"
+                    f"• Price: ${price}
+"
+                    f"• Liquidity: ${liq:,.0f}
+"
+                    f"• Volume (24h): ${vol:,.0f}
+"
+                    f"• Suggested Hold: {hold_time}
+"
+                    f"• Hype Score: {score}/100
+"
+                    f"• Risk Level: Medium
+"
                     f"• Discovered: {datetime.utcnow().strftime('%H:%M UTC')}"
                 )
                 send_telegram(msg)
