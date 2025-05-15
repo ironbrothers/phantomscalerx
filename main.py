@@ -23,7 +23,7 @@ def get_meme_tokens():
                 if any(m in sym for m in ["pepe", "doge", "elon", "rekt", "inu", "pump", "moon"]) and age <= 120:
                     liq = float(p["liquidity"]["usd"])
                     vol = float(p["volume"]["h24"])
-                    if liq >= 3000 and vol >= 8000:
+                    if liq >= 100 and vol >= 500:
                         results.append(p)
             except:
                 continue
@@ -58,7 +58,8 @@ def emoji_tag(score):
         return "💀"
 
 def run_bot():
-    send_telegram("📡 PhantomScalerX v7.1 – Meme Alerts + Hype Scoring Live")
+    send_telegram("📡 PhantomScalerX v7.2 – Final Debug Version Live")
+    print("✅ Bot is running and scanning...")
     seen = set()
     while True:
         tokens = get_meme_tokens()
@@ -84,6 +85,7 @@ def run_bot():
                     f"• Risk Level: Medium\n"
                     f"• Discovered: {datetime.utcnow().strftime('%H:%M UTC')}"
                 )
+                print(f"📬 Alert sent for: {sym}")
                 send_telegram(msg)
         time.sleep(90)
 
