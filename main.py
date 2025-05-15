@@ -58,7 +58,7 @@ def emoji_tag(score):
         return "💀"
 
 def run_bot():
-    send_telegram("📡 PhantomScalerX v7.2 – Final Debug Version Live")
+    send_telegram("📡 PhantomScalerX v7.3 – Threaded Execution Live")
     print("✅ Bot is running and scanning...")
     seen = set()
     while True:
@@ -90,5 +90,6 @@ def run_bot():
         time.sleep(90)
 
 if __name__ == "__main__":
-    keep_alive()
+    from threading import Thread
+    Thread(target=keep_alive).start()
     run_bot()

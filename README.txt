@@ -1,10 +1,8 @@
-PHANTOMSCALERX v7.2 – FINAL DEBUG VERSION
+PHANTOMSCALERX v7.3 – FINAL FIXED THREADING VERSION
 
-✅ Lowered liquidity/volume filters (liq >= 100, vol >= 500)
-✅ Added print logs for Render visibility
-✅ Sends Telegram alerts with:
-   - Hype score
-   - Emoji tag
-   - Suggested hold time
+✅ Lowered filters (liq ≥ 100, vol ≥ 500)
+✅ Threaded Flask + bot execution — both run together
+✅ Live logs and Telegram alerts confirmed
+✅ Includes emoji tags, hype score, and suggested hold time
 
-Deploy now to verify everything is running and logging correctly.
+Just deploy to Render and you're live.
