@@ -11,20 +11,18 @@ def send_telegram(message):
     except Exception as e:
         print("Telegram Error:", e)
 
-def get_meme_tokens():
+def get_all_tokens():
     try:
         res = requests.get("https://api.dexscreener.com/latest/dex/pairs/solana")
         pairs = res.json().get("pairs", [])
         results = []
         for p in pairs:
             try:
-                sym = p["baseToken"]["symbol"].lower()
                 age = int(p.get("ageMinutes", 0))
-                if any(m in sym for m in ["pepe", "doge", "elon", "rekt", "inu", "pump", "moon"]) and age <= 120:
-                    liq = float(p["liquidity"]["usd"])
-                    vol = float(p["volume"]["h24"])
-                    if liq >= 100 and vol >= 500:
-                        results.append(p)
+                liq = float(p["liquidity"]["usd"])
+                vol = float(p["volume"]["h24"])
+                if age <= 120 and liq >= 100 and vol >= 500:
+                    results.append(p)
             except:
                 continue
         return results
@@ -58,11 +56,11 @@ def emoji_tag(score):
         return "💀"
 
 def run_bot():
-    send_telegram("📡 PhantomScalerX v7.3 – Threaded Execution Live")
-    print("✅ Bot is running and scanning...")
+    send_telegram("📡 PhantomScalerX v7.4 – All New Coins Mode Active")
+    print("✅ Bot is running and scanning all fresh launches...")
     seen = set()
     while True:
-        tokens = get_meme_tokens()
+        tokens = get_all_tokens()
         for t in tokens:
             token_id = t['pairAddress']
             if token_id not in seen:
@@ -75,7 +73,7 @@ def run_bot():
                 score = hype_score(vol, liq)
                 emoji = emoji_tag(score)
                 msg = (
-                    f"{emoji} *NEW MEME COIN ALERT*\n\n"
+                    f"{emoji} *FRESH SOLANA TOKEN ALERT*\n\n"
                     f"• Symbol: {sym}\n"
                     f"• Price: ${price}\n"
                     f"• Liquidity: ${liq:,.0f}\n"

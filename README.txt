@@ -1,8 +1,10 @@
-PHANTOMSCALERX v7.3 – FINAL FIXED THREADING VERSION
+PHANTOMSCALERX v7.4 – ALL TOKEN SCANNER
 
-✅ Lowered filters (liq ≥ 100, vol ≥ 500)
-✅ Threaded Flask + bot execution — both run together
-✅ Live logs and Telegram alerts confirmed
-✅ Includes emoji tags, hype score, and suggested hold time
+✅ Scans all new Solana tokens under 2h old
+✅ Filters by liquidity (≥ $100) and volume (≥ $500)
+✅ Sends alerts with:
+   - Symbol, price, liq, vol
+   - Hype score + emoji tag
+   - Suggested hold time
 
-Just deploy to Render and you're live.
+Threaded Flask + bot loop. Fully prewired for Telegram + Render.
