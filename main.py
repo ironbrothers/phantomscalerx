@@ -13,7 +13,7 @@ def send_telegram(message):
 
 def get_all_tokens():
     try:
-        res = requests.get("https://api.dexscreener.com/latest/dex/pairs/solana")
+        res = requests.get("https://api.dexscreener.com/latest/dex/pairs/solana", timeout=10)
         pairs = res.json().get("pairs", [])
         results = []
         for p in pairs:
@@ -26,7 +26,8 @@ def get_all_tokens():
             except:
                 continue
         return results
-    except:
+    except Exception as e:
+        print(f"Request Error: {e}")
         return []
 
 def estimate_hold_time(vol, liq):
@@ -56,8 +57,8 @@ def emoji_tag(score):
         return "💀"
 
 def run_bot():
-    send_telegram("📡 PhantomScalerX v7.4 – All New Coins Mode Active")
-    print("✅ Bot is running and scanning all fresh launches...")
+    send_telegram("📡 PhantomScalerX v7.5 – High-Frequency Scanner Live (10s)")
+    print("✅ Bot is scanning every 10 seconds...")
     seen = set()
     while True:
         tokens = get_all_tokens()
@@ -85,7 +86,7 @@ def run_bot():
                 )
                 print(f"📬 Alert sent for: {sym}")
                 send_telegram(msg)
-        time.sleep(90)
+        time.sleep(10)
 
 if __name__ == "__main__":
     from threading import Thread

@@ -1,10 +1,7 @@
-PHANTOMSCALERX v7.4 – ALL TOKEN SCANNER
+PHANTOMSCALERX v7.5 – HIGH FREQUENCY SCAN MODE
 
-✅ Scans all new Solana tokens under 2h old
-✅ Filters by liquidity (≥ $100) and volume (≥ $500)
-✅ Sends alerts with:
-   - Symbol, price, liq, vol
-   - Hype score + emoji tag
-   - Suggested hold time
+✅ Scans all Solana tokens every 10 seconds
+✅ Alerts for tokens under 2h with liq ≥ $100, vol ≥ $500
+✅ Includes hype score, emoji, hold time, and logs
 
-Threaded Flask + bot loop. Fully prewired for Telegram + Render.
+Built to match top sniper bot speed.
