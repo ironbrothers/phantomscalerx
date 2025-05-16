@@ -57,7 +57,7 @@ def emoji_tag(score):
         return "💀"
 
 def run_bot():
-    send_telegram("📡 PhantomScalerX v7.5 – High-Frequency Scanner Live (10s)")
+    send_telegram("📡 PhantomScalerX v7.6 – Fully Threaded High-Frequency Live")
     print("✅ Bot is scanning every 10 seconds...")
     seen = set()
     while True:
